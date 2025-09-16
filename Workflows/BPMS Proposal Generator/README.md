@@ -29,7 +29,7 @@ This automation ensures every proposal is deeply personalized, accurate, and gen
 
 ## 🛠️ Tech Stack
 *   **Automation:** n8n (with sub-workflow execution)
-*   **AI/LLM:** AvaCloud API (OpenAI Compatible)
+*   **AI/LLM:** AvalAi API (OpenAI Compatible) - Gemini Models
 *   **Data Enrichment:** n8n Webhook, HTTP Request (for web crawling)
 *   **Data Handling:** JSON, HTML
 *   **Logging:** Google Sheets API
