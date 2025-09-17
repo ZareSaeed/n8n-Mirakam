@@ -1,54 +1,35 @@
-# 📄 Workflow 01: AI Sales Proposal Generator
+# 📄 BPMS Proposal Generator
 
-An advanced n8n workflow that automates the creation of personalized, data-driven sales proposals. It enriches initial customer data with external research and generates a comprehensive, 10-section proposal in HTML format.
+This project contains a series of n8n workflows designed to automate the creation of detailed, personalized, and data-driven sales proposals for the ICAN BPMS product suite.
 
 ## 🎯 The Problem
-
-The sales team was spending hours manually researching potential clients and writing proposals from scratch. The process was inconsistent, and key information from different sources (CRM, industry knowledge, client website) was difficult to consolidate, leading to generic and less impactful proposals.
+Manually creating comprehensive sales proposals is a time-intensive process. It requires gathering client-specific information, researching their industry, referencing internal product documentation, and formatting it all into a consistent, professional document. This manual approach is slow, prone to inconsistency, and doesn't scale well.
 
 ## ✨ The Solution
+This workflow automates the entire proposal generation process. It acts as a central engine that consolidates multiple data sources—client requirements, web research, internal knowledge bases—and uses a Large Language Model (LLM) to generate a complete, multi-section proposal in HTML format.
 
-This n8n workflow acts as a centralized brain for proposal generation:
-1.  It is triggered by a **Webhook** from a portal, receiving initial customer data (name, industry, problems, goals, etc.).
-2.  It enriches this data by invoking two sub-workflows:
-    *   **Challenge Analyzer:** Identifies common challenges for the client's specific industry.
-    *   **Web Crawler:** If a client website is provided, it scrapes the site for supplementary information to further personalize the proposal.
-3.  It loads a central **Knowledge Base** containing detailed information about Mirakam's products, modules, and services.
-4.  It dynamically assembles a highly detailed, multi-part prompt for an LLM, combining all four sources of truth: customer data, industry challenges, website info, and the internal knowledge base.
-5.  The LLM generates a complete 10-section proposal according to a strict HTML structure.
-6.  The final HTML is sent back as the webhook response, ready to be displayed or saved.
-7.  **(Bonus Feature)** The workflow includes robust error handling and logs every successful or failed execution to a Google Sheet for monitoring and analysis.
+The core logic ensures that every proposal is not only generated quickly but is also highly tailored to the prospective client's unique needs and industry context.
 
-This automation ensures every proposal is deeply personalized, accurate, and generated in minutes instead of hours.
+---
 
-## 🗺️ Workflow Diagram
+## 📂 Available Versions
 
-*(Here you should add a screenshot of your BPG v3.3 workflow from the n8n canvas. The existing sticky notes are great for explaining the flow!)*
+This project has evolved over time. Each version represents a significant improvement in functionality or approach. The latest recommended version is **v3.3**.
 
-![Workflow Diagram](./images/bpg-diagram.png)
+*   **[v3.3](./v3.3/)** - **Latest Version:** The most advanced version, utilizing a new, structured product knowledge base for highly accurate and consistent content generation.
+*   *(Older versions like v3.2, v3.1, and v2 can be linked here as they are added to the repository.)*
 
-## 🛠️ Tech Stack
+---
+
+## 🧩 Helper Sub-Workflows
+
+The main proposal generator relies on helper sub-workflows for specific data enrichment tasks. These helpers must be imported and activated in your n8n instance for the main workflow to function correctly.
+
+*   **[AiWebCrawler](./Helpers%20(Sub-Workflows)/AiWebCrawler/)**: Scrapes a client's website to extract relevant information (like mission, services, and team) for deep personalization.
+*   **[Industry Challenges Analyzer](./Helpers%20(Sub-Workflows)/Industry%20Challenges%20Analyzer/)**: Provides context on common challenges and pain points within a client's specific industry.
+
+## 🛠️ Core Technology
 *   **Automation:** n8n (with sub-workflow execution)
-*   **AI/LLM:** AvalAi API (OpenAI Compatible) - Gemini Models
-*   **Data Enrichment:** n8n Webhook, HTTP Request (for web crawling)
-*   **Data Handling:** JSON, HTML
-*   **Logging:** Google Sheets API
-
-## ⚙️ How It Works (Node by Node)
-1.  **Webhook Node:** Receives initial customer data from a sales portal.
-2.  **Execute Workflow (ChallengeAnalyzer):** Fetches generic industry challenges to provide broader context.
-3.  **If Node:** Checks if a customer website URL was provided in the input data.
-4.  **Execute Workflow (AiWebCrawler):** If a URL exists, this sub-workflow is called to scrape the site.
-5.  **Set Node (Knowledge Base):** Loads the internal Mirakam product data as a JSON object.
-6.  **Set Node (Build Prompt):** The core of the workflow. Assembles the master prompt from all available data sources.
-7.  **HTTP Request (Send to AvalAi):** Sends the final prompt to the LLM and receives the generated HTML.
-8.  **Respond to Webhook Node:** Returns the final HTML as a direct response to the initial request.
-9.  **Google Sheets Nodes (Success/Failure Path):** Logs the outcome of every execution for tracking and debugging.
-
-## 🚀 How to Use
-1.  Download the `BPG-v3.3.json` file.
-2.  **Important:** This workflow depends on two other sub-workflows (`AiWebCrawler` and `IndustryChallengeAnalyzer`). You must import and activate them in your n8n instance first.
-3.  Import the main workflow into your n8n instance.
-4.  Configure your credentials for the AvalAi API (in the HTTP Request node) and Google Sheets.
-5.  Update the Webhook node with your path.
-6.  Activate the workflow and send customer data to the Webhook URL.
+*   **AI/LLM:** AvaCloud API (OpenAI Compatible)
+*   **Data Format:** JSON, HTML
+*   **Data Enrichment:** Web Scraping, Google Sheets
