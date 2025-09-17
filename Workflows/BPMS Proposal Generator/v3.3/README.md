@@ -23,7 +23,7 @@ This automation ensures every proposal is deeply personalized, accurate, and gen
 
 ## 🗺️ Workflow Diagram
 
-*(Here you should add a screenshot of your BPG v3.3 workflow from the n8n canvas. The existing sticky notes are great for explaining the flow!)*
+This diagram illustrates the execution flow of the BPMS Proposal Generator workflow.
 
 ![Workflow Diagram](images/Entire%20V3.3.png)
 
