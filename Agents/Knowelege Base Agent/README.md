@@ -1,4 +1,4 @@
-# 🤖 Knowelege Base Agent: Knowledge Base (KB) Editor v1
+# 🤖 Knowelege Base Agent: Knowledge Base (KB) Editor v1 (WIP)
 
 An n8n workflow that functions as an intelligent agent, allowing authorized users to update a central JSON knowledge base using simple, natural language commands.
 
