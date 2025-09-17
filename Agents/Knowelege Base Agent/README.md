@@ -28,9 +28,9 @@ This solution empowers non-technical users to manage the knowledge base, drastic
 
 This diagram illustrates the execution flow of the KB Editor Agent workflow.
 
-![Workflow Diagram](images/kb-editor-diagram.png)
+![Workflow Diagram](images/KBA%20v1.png)
 
----
+---images/kb-editor-diagram.png
 
 ## 🛠️ Tech Stack
 *   **Automation:** n8n
