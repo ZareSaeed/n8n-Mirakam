@@ -1,4 +1,4 @@
-# 📄 Workflow 01: AI Sales Proposal Generator
+# 📄 BPG Workflow v3.3: AI Sales Proposal Generator
 
 An advanced n8n workflow that automates the creation of personalized, data-driven sales proposals. It enriches initial customer data with external research and generates a comprehensive, 10-section proposal in HTML format.
 
