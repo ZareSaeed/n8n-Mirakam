@@ -25,7 +25,7 @@ This automation ensures every proposal is deeply personalized, accurate, and gen
 
 *(Here you should add a screenshot of your BPG v3.3 workflow from the n8n canvas. The existing sticky notes are great for explaining the flow!)*
 
-![Workflow Diagram](../../Workflows/BPMS%20Proposal%20Generator/v3.3/images/Entire%20V3.3.png)
+![Workflow Diagram](images/Entire%20V3.3.png)
 
 ## 🛠️ Tech Stack
 *   **Automation:** n8n (with sub-workflow execution)
